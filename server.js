@@ -3,7 +3,6 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const API = require('call-of-duty-api')(({platform: 'psn'}));
-const port = 5500;
 
 app.use(cors());
 
