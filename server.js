@@ -14,8 +14,6 @@ res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
 next(); 
 });
 
-console.log('email: ', process.env.COD_EMAIL, 'password', process.env.COD_PW);
-
 API.login(process.env.COD_EMAIL, process.env.COD_PW).then((res) => {
   console.log(res);
 }).catch((err) => {
@@ -59,6 +57,8 @@ app.get('/weekly', (req, res) => {
     res.send(data);
   })
 });
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
     console.log(`Server listening on ${port}`)
