@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const API = require('call-of-duty-api')(({platform: 'psn'}));
+const API = require('call-of-duty-api')();
 
 app.use(cors());
 
@@ -19,13 +19,58 @@ API.login(process.env.COD_EMAIL, process.env.COD_PW).then((res) => {
   console.log(err);
 });
 
-const players = ['d_stutts', 'parky914', 'waking1987', 'd-rabb12', 'burly1984', 'muskrat_mitch', 'robearpig'];
+console.log(API.platforms);
+
+const players = [
+  {
+    username: 'd_stutts',
+    displayName: 'd_stutts', 
+    platform: 'psn'
+  },
+  {
+    username: 'parky914',
+    displayName: 'parky914',
+    platform: 'psn'
+  },
+  {
+    username: 'waking1987',
+    displayName: 'waking1987', 
+    platform: 'psn'
+  },
+  {
+    username: 'd-rabb12',
+    displayName: 'd-rabb12', 
+    platform: 'psn'
+  },
+  {
+    username: 'burly1984',
+    displayName: 'burly1984', 
+    platform: 'psn'
+  },
+  {
+    username: 'muskrat_mitch',
+    displayName: 'musrkat_mitch', 
+    platform: 'psn'
+  },
+  {
+    username: 'robearpig',
+    displayName: 'robearpig', 
+    platform: 'psn'
+  },
+  {
+    username: 'Tmank87#1253191',
+    displayName: 'TMank87', 
+    platform: 'uno'
+  }
+];
 
 const getPlayerStats = (player) => {
-  return API.MWBattleData(player).then(data => {
+  const { username, displayName, platform } = player;
+  return API.MWBattleData(username, API.platforms[platform]).then(data => {
     return {
       ...data,
-      playerName: player
+      playerName: displayName,
+      platform
     };
   }).catch(err => {
       console.log(err);
@@ -33,10 +78,12 @@ const getPlayerStats = (player) => {
 }
 
 const getPlayerWeeklyStats = (player) => {
-  return API.MWcombatwz(player).then(data => {
+  const { username, platform, displayName } = player;
+  return API.MWcombatwz(username, API.platforms[platform]).then(data => {
     return {
       ...data,
-      playerName: player
+      playerName: displayName,
+      platform
     };
   }).catch(err => {
       console.log(err);
