@@ -19,8 +19,6 @@ API.login(process.env.COD_EMAIL, process.env.COD_PW).then((res) => {
   console.log(err);
 });
 
-console.log(API.platforms);
-
 const players = [
   {
     username: 'd_stutts',
@@ -55,6 +53,11 @@ const players = [
   {
     username: 'robearpig',
     displayName: 'robearpig', 
+    platform: 'psn'
+  },
+  {
+    username: 'Logano_152',
+    displayName: 'Logano_152', 
     platform: 'psn'
   },
   {
