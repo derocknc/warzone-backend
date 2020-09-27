@@ -61,6 +61,11 @@ const players = [
     platform: 'psn'
   },
   {
+    username: 'KingCoulter12',
+    displayName: 'KingCoulter12', 
+    platform: 'psn'
+  },
+  {
     username: 'Tmank87#1253191',
     displayName: 'TMank87', 
     platform: 'uno'
