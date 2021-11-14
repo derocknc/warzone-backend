@@ -13,7 +13,7 @@ res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
 next(); 
 });
 
-API.login(process.env.COD_EMAIL, process.env.COD_PW).then((res) => {
+API.loginWithSSO(process.env.SSO_TOKEN).then((res) => {
   console.log(res);
 }).catch((err) => {
   console.log(err);
