@@ -21,9 +21,9 @@ API.loginWithSSO(process.env.SSO_TOKEN).then((res) => {
 
 const players = [
   {
-    username: 'd_stutts',
-    displayName: 'd_stutts', 
-    platform: 'psn'
+    username: 'derocknc#2999072',
+    displayName: 'derocknc', 
+    platform: 'uno'
   },
   {
     username: 'parky914',
